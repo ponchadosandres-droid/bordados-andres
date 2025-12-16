@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bordados Andres</title>
+
   <style>
     body {
       margin: 0;
@@ -11,13 +12,13 @@
       background-color: #f5f5f5;
     }
 
+    /* ---------- HERO ---------- */
     .hero {
       background-image: url('images/bordadora-bg.jpg');
       background-size: cover;
       background-position: center;
       height: 400px;
       display: flex;
-      flex-direction: column;
       justify-content: center;
       align-items: center;
       color: white;
@@ -35,8 +36,6 @@
     .hero-content h1 {
       font-size: clamp(2.6rem, 6vw, 3.8rem);
       margin: 0 0 12px 0;
-      font-weight: bold;
-      color: white;
     }
 
     .hero-content p {
@@ -44,18 +43,13 @@
       margin: 0;
     }
 
+    /* ---------- SECCIONES ---------- */
     .section {
       padding: 40px 20px;
       text-align: center;
     }
 
-    .section.sobre-nosotros p {
-      max-width: 100%;
-      margin: 0;
-      line-height: 1.6;
-      font-size: 1.1rem;
-    }
-
+    /* ---------- SOBRE NOSOTROS ---------- */
     .about-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -70,20 +64,16 @@
       width: 100%;
       max-width: 420px;
       border-radius: 20px;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      transition: transform .35s ease, box-shadow .35s ease;
     }
 
-    @media (max-width: 768px) {
-      .about-grid {
-        grid-template-columns: 1fr;
-        text-align: center;
-      }
-
-      .about-image img {
-        margin: 0 auto;
-      }
+    .about-image img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.5);
     }
 
+    /* ---------- GALERÍA ---------- */
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -93,7 +83,6 @@
 
     .mockup {
       position: relative;
-      width: 100%;
       height: 220px;
       border-radius: 22px;
       overflow: hidden;
@@ -121,32 +110,42 @@
 
     .mockup:hover .base {
       opacity: 0;
-      transform: scale(0.98);
     }
 
-    @media (min-width: 1200px) {
-      .gallery {
-        grid-template-columns: repeat(4, 1fr);
-      }
+    /* ---------- APP ---------- */
+    .app-description {
+      max-width: 700px;
+      margin: 0 auto 30px;
+      font-size: 1.1rem;
     }
 
-    .app-preview {
-      max-width: 400px;
-      width: 90%;
-      margin: 20px auto 0;
-      border-radius: 18px;
+    .app-media {
+      display: flex;
+      justify-content: center;
+      gap: 35px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .app-preview,
+    .app-uso,
+    .app-video video {
+      max-width: 200px;
+      width: 100%;
+      border-radius: 22px;
       box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      display: block;
+      transition: transform .35s ease, box-shadow .35s ease;
     }
 
-    .app-preview:hover {
+    .app-preview:hover,
+    .app-uso:hover,
+    .app-video video:hover {
       transform: scale(1.05);
       box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-      cursor: pointer;
     }
 
-    .contact .btn-whatsapp {
+    /* ---------- CONTACTO ---------- */
+    .btn-whatsapp {
       display: inline-block;
       background-color: #25D366;
       color: white;
@@ -155,18 +154,13 @@
       text-decoration: none;
       font-weight: bold;
       margin-top: 15px;
-      transition: background 0.3s ease;
     }
 
-    .contact .btn-whatsapp:hover {
-      background-color: #1ebe57;
-    }
-
+    /* ---------- LIGHTBOX ---------- */
     #lightbox {
       display: none;
       position: fixed;
-      top: 0; left: 0;
-      width: 100%; height: 100%;
+      inset: 0;
       background: rgba(0,0,0,0.8);
       justify-content: center;
       align-items: center;
@@ -181,131 +175,162 @@
 
     #close-lightbox {
       position: absolute;
-      top: 20px; right: 30px;
+      top: 20px;
+      right: 30px;
       font-size: 3rem;
       color: white;
       cursor: pointer;
     }
 
+    /* ---------- ANIMACIÓN ---------- */
     .fade-in {
       opacity: 0;
       transform: translateY(30px);
-      transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+      transition: opacity .8s ease, transform .8s ease;
     }
 
     .fade-in.show {
       opacity: 1;
       transform: translateY(0);
     }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+	h2 {
+  font-size: 2.1rem;
+  font-weight: 700;
+  margin-bottom: 18px;
+  position: relative;
+  display: inline-block;
+}
+
+h2::after {
+  content: "";
+  display: block;
+  width: 60%;
+  height: 4px;
+  background: linear-gradient(90deg, #111, #444);
+  margin: 10px auto 0;
+  border-radius: 2px;
+}
   </style>
 </head>
+
 <body>
 
-  <!-- Hero -->
-  <section class="hero fade-in">
-    <div class="hero-content">
-      <h1>Bordados Andres</h1>
-      <p>Transformamos tus diseños en bordados de alta calidad. Descubre nuestra galería y nuestra app para ver tus DST en tu móvil.</p>
-    </div>
-  </section>
-
-    <!-- Sobre Nosotros -->
-  <section class="section sobre-nosotros fade-in">
-    <div class="about-grid">
-      <div class="about-text">
-        <h2>Sobre Nosotros</h2>
-        <p>En Bordados Andres nos especializamos en la digitalización de diseños o ponchados con profesionalismo. Contamos con años de experiencia garantizando bordados de alta calidad y precisión, adaptándonos a cada proyecto y necesidad de nuestros clientes.</p>
-      </div>
-      <div class="about-image">
-        <img src="images/digitalizando.jpg" alt="Digitalización de bordados">
-      </div>
-    </div>
-  </section>
-
-  <!-- Galería -->
-  <section class="section">
-    <h2 class="fade-in">Nuestros Bordados</h2>
-    <div class="gallery fade-in">
-      <div class="mockup">
-        <a href="images/mockup-01.jpg" class="lightbox-link">
-          <img src="images/bordado-01.jpg" class="base" alt="Bordado digital">
-          <img src="images/mockup-01.jpg" class="hover" alt="Bordado en polo">
-        </a>
-      </div>
-      <div class="mockup">
-        <a href="images/mockup-02.jpg" class="lightbox-link">
-          <img src="images/bordado-02.jpg" class="base" alt="Diseño de bordado">
-          <img src="images/mockup-02.jpg" class="hover" alt="Bordado en polo">
-        </a>
-      </div>
-      <div class="mockup">
-        <a href="images/mockup-03.jpg" class="lightbox-link">
-          <img src="images/bordado-03.jpg" class="base" alt="Logo bordado">
-          <img src="images/mockup-03.jpg" class="hover" alt="Bordado en polo">
-        </a>
-      </div>
-      <div class="mockup">
-        <a href="images/mockup-04.jpg" class="lightbox-link">
-          <img src="images/bordado-04.jpg" class="base" alt="Bordado profesional">
-          <img src="images/mockup-04.jpg" class="hover" alt="Bordado en polo">
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- App -->
-  <section class="section">
-    <h2 class="fade-in">Nuestra App</h2>
-    <p class="fade-in">Con nuestra aplicación puedes visualizar tus archivos DST directamente en tu móvil, planificar bordados y compartir tus diseños de manera rápida y sencilla.</p>
-    <img src="images/app-preview.png" alt="Vista de la app" class="app-preview fade-in">
-  </section>
-
-  <!-- Contacto -->
-  <section class="section contact">
-    <h2 class="fade-in">Contacto</h2>
-    <p class="fade-in">¿Tienes un diseño en mente? Escríbenos y lo hacemos realidad.</p>
-    <a href="https://wa.me/tu_numero" target="_blank" class="btn-whatsapp fade-in">Cotizar por WhatsApp</a>
-    <p class="fade-in" style="margin-top: 20px; font-size: 0.9rem; color: #555;">© 2025 Bordados Andres · Bordados computarizados y personalizados</p>
-  </section>
-
-  <!-- Lightbox -->
-  <div id="lightbox">
-    <span id="close-lightbox">&times;</span>
-    <img id="lightbox-img" src="">
+<!-- HERO -->
+<section class="hero fade-in">
+  <div class="hero-content">
+    <h1>Bordados Andres</h1>
+    <p>Transformamos tus diseños en bordados de alta calidad</p>
   </div>
+</section>
 
-  <script>
-    document.querySelectorAll('.lightbox-link').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const imgSrc = link.getAttribute('href');
-        document.getElementById('lightbox-img').src = imgSrc;
-        document.getElementById('lightbox').style.display = 'flex';
-      });
+<!-- SOBRE NOSOTROS -->
+<section class="section fade-in">
+  <div class="about-grid">
+    <div>
+      <h2>Sobre Nosotros</h2>
+      <p>
+        En Bordados Andres nos especializamos en la digitalización de diseños
+        (ponchados) con profesionalismo y años de experiencia, garantizando
+        precisión y calidad en cada bordado.
+      </p>
+    </div>
+    <div class="about-image">
+      <img src="images/digitalizando.jpg">
+    </div>
+  </div>
+</section>
+
+<!-- GALERÍA -->
+<section class="section fade-in">
+  <h2>Nuestros Bordados</h2>
+  <div class="gallery">
+    <div class="mockup">
+      <a href="images/mockup-01.jpg" class="lightbox-link">
+        <img src="images/bordado-01.jpg" class="base">
+        <img src="images/mockup-01.jpg" class="hover">
+      </a>
+    </div>
+    <div class="mockup">
+      <a href="images/mockup-02.jpg" class="lightbox-link">
+        <img src="images/bordado-02.jpg" class="base">
+        <img src="images/mockup-02.jpg" class="hover">
+      </a>
+    </div>
+    <div class="mockup">
+      <a href="images/mockup-03.jpg" class="lightbox-link">
+        <img src="images/bordado-03.jpg" class="base">
+        <img src="images/mockup-03.jpg" class="hover">
+      </a>
+    </div>
+    <div class="mockup">
+      <a href="images/mockup-04.jpg" class="lightbox-link">
+        <img src="images/bordado-04.jpg" class="base">
+        <img src="images/mockup-04.jpg" class="hover">
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- APP -->
+<section class="section fade-in">
+  <h2>Nuestra App</h2>
+  <p class="app-description">
+    Visualiza archivos DST en tu celular, revisa puntadas y planifica tus
+    bordados antes de producirlos.
+  </p>
+
+  <div class="app-media">
+    <img src="images/app-preview.png" class="app-preview">
+    <div class="app-video">
+      <video autoplay muted loop playsinline>
+        <source src="videos/app-demo.mp4" type="video/mp4">
+      </video>
+    </div>
+    <img src="images/app-uso.jpg" class="app-uso">
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section class="section fade-in">
+  <h2>Contacto</h2>
+  <p>¿Tienes un diseño en mente? Escríbenos.</p>
+  <a href="https://wa.me/tu_numero" class="btn-whatsapp">Cotizar por WhatsApp</a>
+  <p style="margin-top:20px;font-size:.9rem;">© 2025 Bordados Andres</p>
+</section>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <span id="close-lightbox">&times;</span>
+  <img id="lightbox-img">
+</div>
+
+<script>
+  document.querySelectorAll('.lightbox-link').forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      document.getElementById('lightbox-img').src = link.href;
+      document.getElementById('lightbox').style.display = 'flex';
     });
+  });
 
-    document.getElementById('close-lightbox').addEventListener('click', () => {
-      document.getElementById('lightbox').style.display = 'none';
+  document.getElementById('close-lightbox').onclick = () =>
+    document.getElementById('lightbox').style.display = 'none';
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
     });
+  });
 
-    document.getElementById('lightbox').addEventListener('click', e => {
-      if(e.target.id === 'lightbox') {
-        document.getElementById('lightbox').style.display = 'none';
-      }
-    });
-
-    const faders = document.querySelectorAll('.fade-in');
-    const appearOptions = { threshold: 0.1, rootMargin: "0px 0px -50px 0px" };
-    const appearOnScroll = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if(entry.isIntersecting){
-          entry.target.classList.add('show');
-          observer.unobserve(entry.target);
-        }
-      });
-    }, appearOptions);
-    faders.forEach(fader => appearOnScroll.observe(fader));
-  </script>
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
