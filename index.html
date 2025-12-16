@@ -50,10 +50,38 @@
     }
 
     .section.sobre-nosotros p {
-      max-width: 700px;
-      margin: 0 auto;
+      max-width: 100%;
+      margin: 0;
       line-height: 1.6;
       font-size: 1.1rem;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      max-width: 1000px;
+      margin: 0 auto;
+      text-align: left;
+    }
+
+    .about-image img {
+      width: 100%;
+      max-width: 420px;
+      border-radius: 20px;
+      box-shadow: 0 15px 40px rgba(0,0,0,0.35);
+    }
+
+    @media (max-width: 768px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .about-image img {
+        margin: 0 auto;
+      }
     }
 
     .gallery {
@@ -181,10 +209,17 @@
     </div>
   </section>
 
-  <!-- Sobre Nosotros -->
+    <!-- Sobre Nosotros -->
   <section class="section sobre-nosotros fade-in">
-    <h2>Sobre Nosotros</h2>
-    <p>En Bordados Andres nos especializamos en la digitalización de diseños o ponchados con profesionalismo. Contamos con años de experiencia garantizando bordados de alta calidad y precisión, adaptándonos a cada proyecto y necesidad de nuestros clientes.</p>
+    <div class="about-grid">
+      <div class="about-text">
+        <h2>Sobre Nosotros</h2>
+        <p>En Bordados Andres nos especializamos en la digitalización de diseños o ponchados con profesionalismo. Contamos con años de experiencia garantizando bordados de alta calidad y precisión, adaptándonos a cada proyecto y necesidad de nuestros clientes.</p>
+      </div>
+      <div class="about-image">
+        <img src="images/digitalizando.jpg" alt="Digitalización de bordados">
+      </div>
+    </div>
   </section>
 
   <!-- Galería -->
@@ -274,4 +309,3 @@
 
 </body>
 </html>
-
